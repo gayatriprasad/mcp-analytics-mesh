@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/audit_event.schema.json",
+  "title": "AuditEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "trace_id", "event_id", "event_type", "actor", "timestamp", "input_hash", "output_hash", "payload_ref"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^0\\.1\\.\\d+$" },
+    "trace_id": { "type": "string" },
+    "event_id": { "type": "string" },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "REQUEST_RECEIVED",
+        "PLAN_PROPOSED",
+        "POLICY_DECIDED",
+        "SQL_PROPOSED",
+        "SQL_EXECUTED",
+        "DQ_COMPUTED",
+        "ANSWER_COMMITTED",
+        "ERROR"
+      ]
+    },
+    "actor": { "type": "string", "enum": ["planner", "authz", "sql_agent", "executor", "quality", "single_writer"] },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "input_hash": { "type": "string" },
+    "output_hash": { "type": "string" },
+    "payload_ref": { "type": "string", "description": "Pointer to the stored JSON payload (file path, blob key, etc.)" }
+  }
+}

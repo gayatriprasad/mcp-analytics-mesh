@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/answer_package.schema.json",
+  "title": "AnswerPackage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "trace_id", "plan_id", "answer", "confidence", "evidence"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^0\\.1\\.\\d+$" },
+    "trace_id": { "type": "string" },
+    "plan_id": { "type": "string" },
+
+    "answer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "key_points"],
+      "properties": {
+        "summary": { "type": "string" },
+        "key_points": { "type": "array", "items": { "type": "string" } },
+        "caveats": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "score", "drivers"],
+      "properties": {
+        "label": { "type": "string", "enum": ["high", "medium", "low"] },
+        "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "drivers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sql", "filters_applied", "rowcount", "snapshot_id", "freshness", "dq_score"],
+      "properties": {
+        "sql": { "type": "string" },
+        "filters_applied": { "type": "array", "items": { "type": "string" } },
+        "rowcount": { "type": "integer" },
+        "snapshot_id": { "type": "string" },
+        "freshness": { "type": "object" },
+        "dq_score": { "type": "integer" }
+      }
+    }
+  }
+}
