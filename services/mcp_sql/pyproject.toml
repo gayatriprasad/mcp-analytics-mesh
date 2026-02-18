@@ -1,0 +1,32 @@
+[project]
+name = "mcp-sql"
+version = "0.1.0"
+description = "MCP SQL server with safe read-only execution"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "pydantic>=2.6",
+  "psycopg[binary]>=3.1",
+  "python-dotenv>=1.0",
+  "sqlglot>=25.0",
+  "structlog>=24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.4",
+  "mypy>=1.8",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
