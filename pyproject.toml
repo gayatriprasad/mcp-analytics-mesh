@@ -1,4 +1,5 @@
 [tool.uv.workspace]
-members = ["services/mcp_sql"]
-
-
+members = [
+  "services/mcp_sql",
+  "services/infra_utils"
+]
