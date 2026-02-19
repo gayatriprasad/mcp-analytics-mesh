@@ -7,7 +7,7 @@ FastAPI-based MCP services - Structured audit logging
 
 ------------------------------------------------------------------------
 
-## 🚀 Project Overview
+##  Project Overview
 
 This project was intentionally built **from zero infrastructure** to a
 working, deterministic analytics mesh.
@@ -27,7 +27,7 @@ encountered and solved systematically.
 
 ------------------------------------------------------------------------
 
-## 🧱 Architecture Philosophy
+##  Architecture Philosophy
 
 This project follows staff-level engineering principles:
 
@@ -57,7 +57,7 @@ This project follows staff-level engineering principles:
 
 ------------------------------------------------------------------------
 
-## 📦 Phase 1A -- Infrastructure + Data Layer
+##  Phase 1A -- Infrastructure + Data Layer
 
 ### ✔ Dockerized Postgres
 
@@ -83,7 +83,7 @@ SELECT COUNT(*) FROM retail.online_retail;
 
 ------------------------------------------------------------------------
 
-## 📊 Analytical Views
+##  Analytical Views
 
 Created canonical views:
 
@@ -96,7 +96,7 @@ Customer counts - Returns flag
 
 ------------------------------------------------------------------------
 
-## 🔐 MCP SQL Service
+##  MCP SQL Service
 
 FastAPI service exposing:
 
@@ -124,7 +124,7 @@ Example request:
 
 ------------------------------------------------------------------------
 
-## 🧠 Key Engineering Learnings
+##  Key Engineering Learnings
 
 This project required solving real-world engineering issues:
 
@@ -141,7 +141,7 @@ signals - Deterministic validation queries - Incremental hardening
 
 ------------------------------------------------------------------------
 
-## 🛠 Local Setup
+##  Local Setup
 
 ### 1. Clone repository
 
@@ -169,19 +169,19 @@ signals - Deterministic validation queries - Incremental hardening
 
 ------------------------------------------------------------------------
 
-## 📈 Current Status
+##  Current Status
 
--   Data layer: ✅ Complete
--   MCP SQL service: ✅ Operational
--   Snapshot determinism: ✅ Verified
--   Audit trail: ✅ Verified
+-   Data layer:  Complete
+-   MCP SQL service:  Operational
+-   Snapshot determinism:  Verified
+-   Audit trail:  Verified
 
 Next planned phase: - SQLSpec contract enforcement - QueryPlan
 orchestration - Multi-agent mesh wiring
 
 ------------------------------------------------------------------------
 
-## 🎯 Why This Project Matters
+##  Why This Project Matters
 
 This is not a toy demo.
 
